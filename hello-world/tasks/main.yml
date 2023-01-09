@@ -1,0 +1,17 @@
+---
+- name: Create directory
+  ansible.builtin.file:
+    path: '{{tmp_dir}}'
+    state: directory
+    mode: '0755'
+
+- name: Add a file
+  ansible.builtin.file:
+    path: "{{tmp_dir}}/hello.txt"
+    state: touch
+    mode: 0644
+
+- name: Write to a file
+  ansible.builtin.shell:
+    cmd: echo "Hello world" > hello.txt
+    chdir: "{{tmp_dir}}/"
