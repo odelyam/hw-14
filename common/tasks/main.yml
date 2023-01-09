@@ -1,0 +1,7 @@
+---
+- name: Install zip and vim packages
+  become: true
+  ansible.builtin.apt:
+    pkg:
+    - vim
+    - zip
